@@ -17,31 +17,32 @@ Edit `inventory.ini` to include the linux servers you wish to monitor.
 
 
 ```
-[cloudamize]                                                                    
-############################################################################### 
-###################### Add Host names or IP addresses here #################### 
+[cloudamize]
+###############################################################################
+###################### Add Host names or IP addresses here ####################
 
 example1.server.com
 example2.server.com
 example3.server.com
 
-                                                                                   
-############################################################################### 
-[all:vars]                                                                         
-ansible_python_interpreter=/usr/bin/python3                                        
-ansible_ssh_common_args='-o StrictHostKeyChecking=no' 
+
+###############################################################################
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ```
 
 
 
 ## Step 4
-Run ansible!
+Run the install shell script and follow the prompts.
 
-`export CLOUDAMIZE_CUSTOMER_KEY=0dbc6...`
-
-`ansible-playbook -i inventory.ini -kK install_agent.yml`
-
-When prompted enter your ssh password.
+```
+$ ./install.sh
+Customer Key: 0dbc6803...
+Region (US or EU): us
+SSH password:
+```
 
 ## Step 5
 
