@@ -1,7 +1,10 @@
 - hosts: "cloudamize"
 
   environment:
-    CLOUDAMIZE_CUSTOMER_KEY: "{{ lookup('env', 'CLOUDAMIZE_CUSTOMER_KEY') }}"
+    CLOUDAMIZE_CUSTOMER_KEY: "{{ customer_key }}"
+
+  vars:
+    region: "{{ region }}"
 
   tasks:
 
@@ -13,9 +16,19 @@
       register: result
       failed_when: "'Server is up and running!' not in result.content"
 
+    - name: Set Region to US
+      set_fact:
+        download_host: https://agentmanager1.cloudamize.com
+      when: region == 'US'
+
+    - name: Set Region to EU
+      set_fact:
+        download_host: https://agentmanager-de.cloudamize.com
+      when: region == 'EU'
+
     - name: Download the Cloudamize Agent
       unarchive:
-        src: https://agentmanager1.cloudamize.com/cxf/downloadFile/cloudamize_agent.tgz
+        src: "{{ download_host }}/cxf/downloadFile/cloudamize_agent.tgz"
         dest: /tmp
         remote_src: yes
 
