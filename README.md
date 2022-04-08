@@ -34,13 +34,13 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 
 
-Step 4
+## Step 4
 Run ansible!
 
 `ansible-playbook -i inventory.ini -K install_agent.yml`
 
 When prompted enter your ssh password.
 
-Step 5
+## Step 5
 
 Visit `console.cloudamize.com` and confirm that the agents have been installed.
