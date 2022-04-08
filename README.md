@@ -13,7 +13,7 @@ Clone this repo
 `git clone https://github.com/chuckorde/cloudamize-ansible.git`
 
 ## Step 3
-Edit `inventory.ini` to include the linux servers you with to monitor.
+Edit `inventory.ini` to include the linux servers you wish to monitor.
 
 
 ```
