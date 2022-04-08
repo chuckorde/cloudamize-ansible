@@ -36,6 +36,7 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 ## Step 4
 Run ansible!
+`export CLOUDAMIZE_CUSTOMER_KEY=0dbc6...`
 
 `ansible-playbook -i inventory.ini -kK install_agent.yml`
 
