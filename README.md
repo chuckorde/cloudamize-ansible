@@ -10,7 +10,7 @@ Install ansible on a machine that has ssh access to your linux servers.
 
 ## Step 2
 Clone this repo
-`git clone https://github.com/chuckorde/cloudamize-ansible.git`
+`git clone https://github.com/chuckorde/cloudamize-ansible.git` or download the [zip file](https://github.com/chuckorde/cloudamize-ansible/archive/refs/heads/main.zip).
 
 ## Step 3
 Edit `inventory.ini` to include the linux servers you wish to monitor.
@@ -46,4 +46,4 @@ SSH password:
 
 ## Step 5
 
-Visit `console.cloudamize.com` and confirm that the agents have been installed.
+Visit [https://console.cloudamize.com](https://console.cloudamize.com) and confirm that the agents have been installed.
