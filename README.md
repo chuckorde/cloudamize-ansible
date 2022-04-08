@@ -37,7 +37,7 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ## Step 4
 Run ansible!
 
-`ansible-playbook -i inventory.ini -K install_agent.yml`
+`ansible-playbook -i inventory.ini -kK install_agent.yml`
 
 When prompted enter your ssh password.
 
