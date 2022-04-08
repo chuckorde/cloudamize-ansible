@@ -1,0 +1,30 @@
+- hosts: "cloudamize"
+
+  environment:
+    CLOUDAMIZE_CUSTOMER_KEY: "{{ lookup('env', 'CLOUDAMIZE_CUSTOMER_KEY') }}"
+
+  tasks:
+
+    - name: Test API Connectivity
+      uri:
+        url: https://am.cloudamize.com/cxf/test
+        method: GET
+        return_content: yes
+      register: result
+      failed_when: "'Server is up and running!' not in result.content"
+
+    - name: Download the Cloudamize Agent
+      unarchive:
+        src: https://agentmanager1.cloudamize.com/cxf/downloadFile/cloudamize_agent.tgz
+        dest: /tmp
+        remote_src: yes
+
+    - name: Install the Cloudamize Agent
+      become: true
+      command: chdir=/tmp/cloudamize_agent/ bash install.sh
+
+    - name: Configure the Cloudamize Agent
+      become: true
+      command: /usr/local/cloudamize/bin/configure.sh
+
+
