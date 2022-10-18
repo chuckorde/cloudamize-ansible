@@ -18,7 +18,7 @@
 
     - name: Set Region to US
       set_fact:
-        download_host: https://agentmanager1.cloudamize.com
+        download_host: https://am.cloudamize.com
       when: region == 'US'
 
     - name: Set Region to EU
