@@ -23,7 +23,7 @@
 
     - name: Set Region to EU
       set_fact:
-        download_host: https://agentmanager-de.cloudamize.com
+        download_host: https://am-de.cloudamize.com
       when: region == 'EU'
 
     - name: Download the Cloudamize Agent
